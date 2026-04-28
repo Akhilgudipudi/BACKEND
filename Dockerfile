@@ -1,3 +1,4 @@
+# -------- BUILD STAGE --------
 FROM maven:3.9.9-eclipse-temurin-24 AS build
 WORKDIR /app
 
@@ -6,6 +7,8 @@ COPY backend/src ./src
 
 RUN mvn clean package -DskipTests
 
+
+# -------- RUN STAGE --------
 FROM eclipse-temurin:24-jre
 WORKDIR /app
 
